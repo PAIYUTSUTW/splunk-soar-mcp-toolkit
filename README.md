@@ -1,4 +1,4 @@
-# SOAR MCP Toolkit
+# Splunk SOAR MCP Toolkit
 
 An independent Model Context Protocol (MCP) server for Splunk SOAR, read-only
 by default. Discover installed connector actions, execute saved playbooks through

@@ -6,7 +6,7 @@ Use Python 3.11 or newer. Install this standalone repository:
 
 ```sh
 python3 -m venv /absolute/client-venv
-/absolute/client-venv/bin/python -m pip install /absolute/source/soar-mcp-toolkit
+/absolute/client-venv/bin/python -m pip install /absolute/source/splunk-soar-mcp-toolkit
 ```
 
 For a locally built wheel or source distribution, replace the final argument with

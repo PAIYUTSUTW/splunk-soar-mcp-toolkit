@@ -29,21 +29,24 @@ def test_owner_selected_mit_license_matches_distribution():
 
 def test_public_name_and_repository_preserve_command_and_import():
     project = tomllib.loads((ROOT / 'pyproject.toml').read_text())['project']
-    assert project['name'] == 'soar-mcp-toolkit'
+    assert project['name'] == 'splunk-soar-mcp-toolkit'
     assert project['urls'] == {
-        'Repository': 'https://github.com/PAIYUTSUTW/soar-mcp-toolkit',
-        'Issues': 'https://github.com/PAIYUTSUTW/soar-mcp-toolkit/issues',
+        'Repository': 'https://github.com/PAIYUTSUTW/splunk-soar-mcp-toolkit',
+        'Issues': 'https://github.com/PAIYUTSUTW/splunk-soar-mcp-toolkit/issues',
     }
     assert project['scripts'] == {'soar-mcp': 'soar_mcp.server:main'}
+    readme = (ROOT / 'README.md').read_text()
+    assert readme.startswith('# Splunk SOAR MCP Toolkit\n')
+    assert 'not an official Splunk product' in readme
 
 
 def test_wheel_carries_public_installation_material():
     config = tomllib.loads((ROOT / 'pyproject.toml').read_text())
     files = config['tool']['setuptools']['data-files']
-    assert files['share/soar-mcp-toolkit'] == [
+    assert files['share/splunk-soar-mcp-toolkit'] == [
         'README.md', 'SOURCES.md', 'SECURITY.md', 'CONTRIBUTING.md']
-    assert files['share/soar-mcp-toolkit/docs'] == ['docs/CLIENTS.md']
-    assert set(files['share/soar-mcp-toolkit/examples']) == {
+    assert files['share/splunk-soar-mcp-toolkit/docs'] == ['docs/CLIENTS.md']
+    assert set(files['share/splunk-soar-mcp-toolkit/examples']) == {
         'examples/readonly.env', 'examples/owned.env'}
 
 

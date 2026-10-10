@@ -3,7 +3,7 @@ requires = ["setuptools>=80.9,<81"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "soar-mcp-toolkit"
+name = "splunk-soar-mcp-toolkit"
 version = "0.3.1"
 description = "Portable, evidence-preserving Splunk SOAR MCP tools"
 readme = "README.md"
@@ -19,16 +19,16 @@ test = ["pytest==9.0.3", "trustme==1.2.1"]
 soar-mcp = "soar_mcp.server:main"
 
 [project.urls]
-Repository = "https://github.com/PAIYUTSUTW/soar-mcp-toolkit"
-Issues = "https://github.com/PAIYUTSUTW/soar-mcp-toolkit/issues"
+Repository = "https://github.com/PAIYUTSUTW/splunk-soar-mcp-toolkit"
+Issues = "https://github.com/PAIYUTSUTW/splunk-soar-mcp-toolkit/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.data-files]
-"share/soar-mcp-toolkit" = ["README.md", "SOURCES.md", "SECURITY.md", "CONTRIBUTING.md"]
-"share/soar-mcp-toolkit/docs" = ["docs/CLIENTS.md"]
-"share/soar-mcp-toolkit/examples" = ["examples/readonly.env", "examples/owned.env"]
+"share/splunk-soar-mcp-toolkit" = ["README.md", "SOURCES.md", "SECURITY.md", "CONTRIBUTING.md"]
+"share/splunk-soar-mcp-toolkit/docs" = ["docs/CLIENTS.md"]
+"share/splunk-soar-mcp-toolkit/examples" = ["examples/readonly.env", "examples/owned.env"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
