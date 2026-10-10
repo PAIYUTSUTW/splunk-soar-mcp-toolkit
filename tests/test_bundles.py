@@ -1,4 +1,5 @@
 import base64
+import gzip
 import io
 import json
 import tarfile
@@ -116,8 +117,9 @@ def test_bad_export_is_not_binary_success(tmp_path,status,raw,kind):
 
 def test_archive_size_limit_and_duplicate_json_fail_closed():
     from soar_mcp.bundles import read_bundle,MAX_BUNDLE_BYTES
-    out=io.BytesIO()
-    with tarfile.open(fileobj=out,mode='w:gz') as archive:
-        member=tarfile.TarInfo('x.py');member.size=MAX_BUNDLE_BYTES+1;archive.addfile(member)
-    with pytest.raises(ValueError,match='32 MiB'):read_bundle(out.getvalue())
+    # Deliberately header-only: reject the declared size before reading a body.
+    # Python 3.13's addfile requires body input for nonempty regular files.
+    member=tarfile.TarInfo('x.py');member.size=MAX_BUNDLE_BYTES+1
+    raw=gzip.compress(member.tobuf())
+    with pytest.raises(ValueError,match='32 MiB'):read_bundle(raw)
     with pytest.raises(ValueError):read_bundle(bundle(members=[('x.py',b''),('x.json',b'{"coa":{},"coa":{}}')]))
