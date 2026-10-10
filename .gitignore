@@ -1,0 +1,30 @@
+# Local build/test environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.coverage*
+htmlcov/
+
+# Private configuration, credentials and complete SOAR evidence
+.env
+.env.*
+*.env
+!examples/readonly.env
+!examples/owned.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.body
+*.sqlite*
+*.db
+*.log
+evidence/
+private/
+credentials/
+.DS_Store

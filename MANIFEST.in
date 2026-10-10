@@ -1,0 +1,8 @@
+include README.md SOURCES.md SECURITY.md CONTRIBUTING.md
+include LICENSE THIRD_PARTY_NOTICES.md
+include .gitignore .gitattributes
+recursive-include docs *.md
+recursive-include examples *.env
+recursive-include tests *.py
+recursive-include .github *.yml
+global-exclude __pycache__ *.py[cod]
